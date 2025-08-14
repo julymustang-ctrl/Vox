@@ -1,0 +1,41 @@
+{
+  "name": "vox-translator",
+  "version": "1.0.0",
+  "description": "Windows-compatible voice translator application with microphone visualization",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test-mic": "electron mic-test.js",
+    "test-vosk": "node test-vosk-http.js",
+    "test-translation": "node test-translation.js",
+    "test-translation-simple": "node test-translation-simple.js",
+    "test-output": "node test-output.js",
+    "test-integration": "node test-integration.js",
+    "test-realtime-audio": "node test-realtime-audio.js",
+    "test-performance": "node test-performance.js",
+    "test-final-integration": "node test-final-integration.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "voice",
+    "translator",
+    "turkish",
+    "english",
+    "microphone",
+    "visualization"
+  ],
+  "author": "Qwen Code",
+  "license": "MIT",
+  "dependencies": {
+    "@huggingface/inference": "^4.7.1",
+    "axios": "^1.11.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "fs-extra": "^10.0.0",
+    "mic": "^2.1.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-rebuild": "^3.2.9"
+  }
+}

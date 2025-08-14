@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src 'self'">
+    <title>Vox Translator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      
+      .container {
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      h1 {
+        color: #333;
+      }
+      
+      .status {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        border-radius: 5px;
+      }
+      
+      .listening {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      
+      .idle {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      
+      .translation {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        min-height: 2rem;
+      }
+      
+      /* Microphone visualization bar */
+      .mic-visualization {
+        width: 100%;
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        margin: 1rem 0;
+        overflow: hidden;
+      }
+      
+      .mic-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(to right, green, yellow, red);
+        transition: width 0.1s ease;
+      }
+      
+      button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+      }
+      
+      button:hover {
+        background-color: #0056b3;
+      }
+      
+      button:disabled {
+        background-color: #6c757d;
+        cursor: not-allowed;
+      }
+      
+      .mic-status {
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Vox Translator</h1>
+      <div id="status" class="status idle">Beklemede - "Vox başla" demek için hazır</div>
+      
+      <!-- Microphone visualization bar -->
+      <div class="mic-visualization">
+        <div id="micBar" class="mic-bar"></div>
+      </div>
+      <div id="micStatus" class="mic-status">Mikrofon durumu: Bekleniyor</div>
+      
+      <div id="translation" class="translation">Çeviri burada görünecek</div>
+      <button id="startBtn">Başlat</button>
+      <button id="stopBtn" disabled>Durdur</button>
+    </div>
+    
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
